@@ -69,7 +69,7 @@ import java.util.ArrayList;
             eStatus.setSelection(statSelect(status.toString()));
 
             eDueDate.setMinDate(System.currentTimeMillis() - 1000);
-            eDueDate.updateDate(Integer.parseInt(dataFromDB.get(3).toString()),Integer.parseInt(dataFromDB.get(2)), Integer.parseInt(dataFromDB.get(1)));
+            eDueDate.updateDate(Integer.parseInt((dataFromDB.get(3)).toString()),(Integer.parseInt((dataFromDB.get(2)))-1), Integer.parseInt(dataFromDB.get(1)));
         }
 
         int priSelect(String arg){
