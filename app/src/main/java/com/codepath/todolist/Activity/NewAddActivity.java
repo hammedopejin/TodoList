@@ -1,4 +1,4 @@
-package com.codepath.todolist;
+package com.codepath.todolist.Activity;
 
     import android.content.Intent;
     import android.os.Bundle;
@@ -9,7 +9,11 @@ package com.codepath.todolist;
     import android.widget.EditText;
     import android.widget.Spinner;
 
-    /**
+    import com.codepath.todolist.R;
+    import com.codepath.todolist.Helper.TodoItemsDbHelper;
+    import com.codepath.todolist.TodoList;
+
+/**
      * Created by hammedopejin on 2/9/17.
      */
 
@@ -21,7 +25,7 @@ package com.codepath.todolist;
 
 
 
-        TodoItemDatabase td;
+        TodoItemsDbHelper td;
 
         private String task;
         private String day;
@@ -41,7 +45,7 @@ package com.codepath.todolist;
             setContentView(R.layout.activity_add_new);
             eDate = (DatePicker) findViewById(R.id.dueDate);
             eDate.setMinDate(System.currentTimeMillis() - 1000);
-            td = new TodoItemDatabase(this);
+            td = new TodoItemsDbHelper(this);
             addListenerOnPriorityItemSelection();
             addListenerOnStatusItemSelection();
         }

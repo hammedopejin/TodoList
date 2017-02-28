@@ -1,4 +1,4 @@
-package com.codepath.todolist;
+package com.codepath.todolist.Activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.support.v4.app.FragmentManager;
@@ -6,6 +6,10 @@ package com.codepath.todolist;
         import android.view.View;
         import android.widget.ArrayAdapter;
         import android.widget.ListView;
+
+        import com.codepath.todolist.Fragment.MyDeleteDialogFragment;
+        import com.codepath.todolist.R;
+        import com.codepath.todolist.Helper.TodoItemsDbHelper;
 
         import java.util.ArrayList;
 
@@ -27,7 +31,7 @@ public class EditDialogActivity extends AppCompatActivity {
     public String priority;
     public String status;
     ArrayAdapter<String> itemsAdapter;
-    TodoItemDatabase td;
+    TodoItemsDbHelper td;
     ArrayList<String> dataFromDB;
 
 
@@ -37,7 +41,7 @@ public class EditDialogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_dialog);
 
         items = new ArrayList<>();
-        td = new TodoItemDatabase(this);
+        td = new TodoItemsDbHelper(this);
         dataFromDB = td.getAll(getIntent().getStringExtra("it"));
         task = dataFromDB.get(0);
         date = (dataFromDB.get(2) + ", " + dataFromDB.get(1)) + ", " + dataFromDB.get(3);
@@ -65,10 +69,10 @@ public class EditDialogActivity extends AppCompatActivity {
 
 
     }
-    void setTd(TodoItemDatabase td){
+    void setTd(TodoItemsDbHelper td){
         this.td = td;
     }
-    TodoItemDatabase getTd(){
+    TodoItemsDbHelper getTd(){
         return td;
     }
 

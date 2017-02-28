@@ -1,14 +1,17 @@
-package com.codepath.todolist;
+package com.codepath.todolist.Activity;
 
     import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+    import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+    import com.codepath.todolist.R;
+    import com.codepath.todolist.Helper.TodoItemsDbHelper;
+    import com.codepath.todolist.TodoList;
 
-import java.util.ArrayList;
+    import java.util.ArrayList;
 
     /**
      * Created by hammedopejin on 2/8/17.
@@ -28,7 +31,7 @@ import java.util.ArrayList;
         private String month;
         private String year;
         private String note;
-        TodoItemDatabase td;
+        TodoItemsDbHelper td;
         ArrayList<String> dataFromDB;
         EditText eTask;
         EditText eNote;
@@ -48,7 +51,7 @@ import java.util.ArrayList;
             eDueDate = (DatePicker)findViewById(R.id.eDueDate);
 
             items = new ArrayList<>();
-            td = new TodoItemDatabase(this);
+            td = new TodoItemsDbHelper(this);
             dataFromDB = td.getAll(getIntent().getStringExtra("task"));
             task = dataFromDB.get(0);
             flag = td.getID(task);

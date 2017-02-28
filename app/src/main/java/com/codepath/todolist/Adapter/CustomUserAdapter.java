@@ -1,4 +1,4 @@
-package com.codepath.todolist;
+package com.codepath.todolist.Adapter;
 
     import android.content.Context;
     import android.view.LayoutInflater;
@@ -7,7 +7,10 @@ package com.codepath.todolist;
     import android.widget.ArrayAdapter;
     import android.widget.TextView;
 
-    /**
+    import com.codepath.todolist.Items;
+    import com.codepath.todolist.R;
+
+/**
      * Created by hammedopejin on 2/8/17.
      */
 

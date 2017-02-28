@@ -1,4 +1,4 @@
-package com.codepath.todolist;
+package com.codepath.todolist.Fragment;
 
     import android.app.AlertDialog;
     import android.app.Dialog;
@@ -8,7 +8,10 @@ package com.codepath.todolist;
     import android.support.v4.app.DialogFragment;
     import android.support.v7.app.AppCompatActivity;
 
-    /**
+    import com.codepath.todolist.Helper.TodoItemsDbHelper;
+    import com.codepath.todolist.TodoList;
+
+/**
      * Created by hammedopejin on 2/16/17.
      */
 
@@ -54,7 +57,7 @@ package com.codepath.todolist;
                 public void onClick(DialogInterface dialog, int which) {
                     // on success
 
-                    TodoItemDatabase td = new TodoItemDatabase(getContext());
+                    TodoItemsDbHelper td = new TodoItemsDbHelper(getContext());
                     td.deleteItem(task);
                     Intent i = new Intent(MyDeleteDialogFragment.super.getContext(), TodoList.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
